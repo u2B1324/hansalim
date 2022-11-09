@@ -1,5 +1,24 @@
 $(document).ready(function () {
 
+    // modal 기능
+    let modal = $('.modal');
+    let modalCon = $('.modal-content');
+    let modalClose = $('.modal-close');
+
+    modal.click(function(){
+        modal.stop().fadeOut();
+        $('html').css('overflow', 'auto');
+    });
+
+    modalCon.click(function(e){
+        e.stopPropagation();
+    });
+
+    modalClose.click(function(){
+        modal.stop().fadeOut();
+        $('html').css('overflow', 'auto');
+    });
+
     // niceScroll ---------------------------------------
     $(function () {
         $(".recipe-choice-list").niceScroll({
@@ -1205,15 +1224,86 @@ $(document).ready(function () {
 });
 
 window.onload = function () {
-    new Swiper('.sw-visual', {
+    
+    let swVisualPause = $('.sw-visual-pause');
+    let swVisual = new Swiper('.sw-visual', {
         loop: true,
         autoplay: {
-            delay: 3000,
+            delay: 500,
             disableOnInteraction: false,
         },
         speed: 300,
+        navigation: {
+            prevEl: '.sw-visual-prev',
+            nextEl: '.sw-visual-next'
+        },
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-visual-pg',
+            type: 'fraction',
+        }
     });
     
+    swVisualPause.click(function(){
+        $(this).toggleClass("sw-visual-pause-active");
+        let state = $(this).hasClass("sw-visual-pause-active");
+        if (state == true) {
+            swVisual.autoplay.stop();
+        } else {
+            swVisual.autoplay.start();
+        }
+    });
+    
+    // 마우스 오버시에 슬라이드 멈추기
+    $('.sw-visual').mouseenter(function(){
+        swVisual.autoplay.stop();
+    });
+    // 마우스 아웃시에 슬라이드 재실행
+    $('.sw-visual').mouseleave(function(){
+        swVisual.autoplay.start();
+    });
+    
+    new Swiper('.sw-sale', {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        slidesPerGroup: 3,
+        pagination: {
+            el: '.sw-sale-menu .sw-good-pg',
+            type: 'fraction',
+        },
+        navigation: {
+            prevEl: '.sw-sale-menu .sw-good-prev',
+            nextEl: '.sw-sale-menu .sw-good-next'
+        }
+    });
+    
+    new Swiper('.sw-choice', {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        slidesPerGroup: 3,
+        pagination: {
+            el: '.sw-choice-menu .sw-good-pg',
+            type: 'fraction',
+        },
+        navigation: {
+            prevEl: '.sw-choice-menu .sw-good-prev',
+            nextEl: '.sw-choice-menu .sw-good-next'
+        }
+    });
+    
+    new Swiper('.sw-brand', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        pagination: {
+            el: '.sw-brand-menu .sw-good-pg',
+            type: 'fraction',
+        },
+        navigation: {
+            prevEl: '.sw-brand-menu .sw-good-prev',
+            nextEl: '.sw-brand-menu .sw-good-next'
+        }
+    });
+
     new Swiper('.sw-cate', {
         slidesPerView: 7,
         slidesPerGroup: 7,
@@ -1224,9 +1314,18 @@ window.onload = function () {
         }
     });
     
-    new Swiper('.sw-brand', {
+    new Swiper('.sw-review', {
         slidesPerView: 3,
-        spaceBetween: 20
+        spaceBetween: 15,
+        slidesPerGroup: 3,
+        pagination: {
+            el: '.sw-review-menu .sw-good-pg',
+            type: 'fraction',
+        },
+        navigation: {
+            prevEl: '.sw-review-menu .sw-good-prev',
+            nextEl: '.sw-review-menu .sw-good-next'
+        }
     });
     
     new Swiper('.sw-banner', {
@@ -1237,24 +1336,9 @@ window.onload = function () {
         },
         speed: 500,
         slidesPerView: 2,
+        navigation: {
+            prevEl: '.sw-banner-prev',
+            nextEl: '.sw-banner-next'
+        }
     });
-
-    new Swiper('.sw-review', {
-        slidesPerView: 3,
-        spaceBetween: 15,
-        slidesPerGroup: 3
-    });
-    
-    new Swiper('.sw-sale', {
-        slidesPerView: 3,
-        spaceBetween: 16,
-        slidesPerGroup: 3,
-    });
-    
-    new Swiper('.sw-choice', {
-        slidesPerView: 3,
-        spaceBetween: 16,
-        slidesPerGroup: 3,
-    });
-
 };

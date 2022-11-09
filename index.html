@@ -17,6 +17,19 @@
     <script src="/js/script.js"></script>
 </head>
 <body>
+    <!-- 소스 안내 팝업 -->
+    <div class="modal">
+        <div class="modal-content">
+            <p>
+                해당 사이트는 <strong>스터디용</strong>으로 제작되었으며,
+                리소스는 <strong>원저작자</strong>에 있음을 알려드립니다. <br>
+                문제사항이 있으실 때 연락을 주시면 빠른 시일 내 조치하겠습니다.
+                <span>본사이트는 크롬에 최적화 되어 있습니다.</span>
+            </p>
+            <button class="modal-close">close</button>
+        </div>
+    </div>
+
     <!-- 우측 고정 메뉴 -->
     <div class="fix-info-wrap">
         <ul class="fix-info-list">
@@ -315,6 +328,17 @@
                     </div>
                 </div>
             </div>
+            <!-- 컨트롤러 배치 -->
+            <button class="sw-visual-prev">이전</button>
+            <button class="sw-visual-next">다음</button>
+            <!-- slide 정보 출력 -->
+            <div class="sw-visual-control">
+                <button class="sw-visual-pause"></button>
+                <!-- pg 란 pagination 을 줄여서 작성: 작성자 -->
+                <div class="sw-visual-pg"></div>
+                <!-- 팝업보기 -->
+                <a href="#" class="sw-visual-pop">더보기</a>
+            </div>
         </section>
         <!-- 추천상품 -->
         <section class="purpose">
@@ -342,6 +366,11 @@
                         <div class="btn-wrap">
                             <a href="#" class="btn">더보기</a>
                         </div>
+                    </div>
+                    <div class="sw-good-control sw-sale-menu clearfix">
+                        <button class="sw-good-prev">이전</button>
+                        <div class="sw-good-pg"></div>
+                        <button class="sw-good-next">다음</button>
                     </div>
                     <div class="section-layout-right">
                         <!-- 알뜰물품 슬라이드 -->
@@ -436,6 +465,11 @@
                         <span class="section-title-desc section-title-desc-bar">
                             가을 나들이를 위한 도시락 재료
                         </span>
+                        <div class="sw-good-control sw-choice-menu clearfix">
+                            <button class="sw-good-prev">이전</button>
+                            <div class="sw-good-pg"></div>
+                            <button class="sw-good-next">다음</button>
+                        </div>
                     </div>
                     <div class="section-layout-right">
                         <!-- 추천물품 슬라이드 -->
@@ -854,6 +888,11 @@
                         <div class="btn-wrap">
                             <a href="#" class="btn">더보기</a>
                         </div>
+                        <div class="sw-good-control sw-brand-menu clearfix">
+                            <button class="sw-good-prev">이전</button>
+                            <div class="sw-good-pg"></div>
+                            <button class="sw-good-next">다음</button>
+                        </div>
                     </div>
                     <div class="section-layout-right">
                         <!-- 브랜드 슬라이드 영역 -->
@@ -1072,6 +1111,8 @@
                     </div>
                 </div>
                 <!--// 배너 스와이퍼 -->
+                <button class="sw-banner-prev"></button>
+                <button class="sw-banner-next"></button>
             </div>
         </section>
         <!-- 레시피 -->
@@ -1224,6 +1265,11 @@
                             이웃 조합원은<br />
                             어떤 물품을 구매했을까요?
                         </span>
+                        <div class="sw-good-control sw-review-menu clearfix">
+                            <button class="sw-good-prev">이전</button>
+                            <div class="sw-good-pg"></div>
+                            <button class="sw-good-next">다음</button>
+                        </div>
                     </div>
                     <div class="section-layout-right">
                         <!-- 이용후기 슬라이드 영역 -->
